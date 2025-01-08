@@ -1,177 +1,154 @@
-<img src="https://qumo.ai/logo-black.svg" alt="Qumo AI Logo" width="200"/>
+# Data Insights Chat - Student Survey Analysis
 
-## Mini Project Specification: AI Chat Interface for Data Insights
+A real-time AI-powered chat interface for analyzing student survey data about academic stress and mental health. This application allows users to query and explore insights from survey data through natural language conversations.
 
-### **Objective**
 
-Create an AI-driven chat interface that allows users to query and explore insights from a dataset containing survey responses about university students' academic stress and mental health management.
+## 🚀 Features
 
----
+- **Natural Language Querying**: Ask questions about the survey data 
+- **Real-time Analysis**: Get instant insights about student stress, mental health, and support services
+- **Statistical Analysis**: View percentages and frequency distributions of responses
+- **Professional UI**: Clean, responsive interface with dark/light mode support
+- **Predefined Insights Summary**: Added a summary section that displays predefined insights (Bonus Feature)
 
-### **Scope of the Project**
 
-The goal is to build a web application with the following key features:
+## 🛠️ Technical Implementation
 
-1. **AI Chat Interface**:
+### Architecture
+
+- **Frontend**: Next.js 14 (App Router) with React and TypeScript
+- **AI Integration**: Vercel AI SDK with Google's Gemini Pro
+- **Styling**: Tailwind CSS with shadcn/ui components
+- **State Management**: React hooks for local state
+- **Data Processing**: Server-side functions for data analysis
 
-   - A conversational interface where users can ask natural language questions about the dataset.
-   - Example queries:
-     - "What are the most common sources of academic stress reported by students?"
-     - "How many students rated their mental health below 5?"
-     - "What strategies are most frequently used to manage stress?"
-     - "What support services do students think would help the most?"
+### Key Libraries & Tools
 
-2. **Data Querying**:
+- `@vercel/ai`: For AI chat functionality
+- `@ai-sdk/google`: Google Gemini Pro integration
+- `shadcn/ui`: UI component library
+- `next-themes`: Dark mode implementation
+- `lucide-react`: Icon system
+- `tailwindcss`: Utility-first CSS
+- `zod`: Runtime type checking
 
-   - Process the dataset to provide accurate answers to user queries.
+## 💡 Approach & Design Decisions
 
----
+### 1. Data Processing
+- Structured survey data for efficient querying
+- Server actions for data operations
+- Type-safe data handling with TypeScript
 
-### **Requirements**
+### 2. AI Integration
+- System prompts for consistent analysis
+- Tool-based approach for data access
+- Temperature control for reliable responses
+- Structured output format for better readability
 
-#### **Core Features**
+### 3. User Interface
+- Professional, clean design
+- Responsive layout
+- Loading states for better UX
+- Welcome message with example queries
+- Theme switching capability
 
-1. **User Input**:
+### 4. Performance Considerations
+- Optimized re-renders
+- Efficient data fetching
+- Proper error handling
+- Response streaming
 
-   - Accept user queries in natural language.
-   - Process queries to generate meaningful results based on the dataset.
+### 5. Error Handling
+- Input Sanitization
+- Data Validation in Server Actions
+- UI Error Handling  
 
-2. **AI Integration**:
+## 🎯 Challenges & Solutions
 
-   - Implement a basic AI or NLP solution to parse and understand user queries.
-   - The template project uses [Vercel AI SDK](https://sdk.vercel.ai/). However you may use other libraries you are familiar with like [LangChain](https://www.langchain.com/).
-   - You can obtain a free API key from Google Gemini [here](https://aistudio.google.com/).
+1. **AI Response Formatting**
+   - Challenge: Inconsistent response formats
+   - Solution: Implemented structured system prompts and response templates
 
-3. **Frontend**:
+2. **Data Analysis Accuracy**
+   - Challenge: Getting precise statistics
+   - Solution: Added helper functions for calculations and sorting
 
-   - A clean, user-friendly interface for interacting with the chatbot.
-   - You may utilise UI component libraries such as [Chakra UI](https://www.chakra-ui.com/), [shadcn](https://ui.shadcn.com/) or [Material UI](https://mui.com/material-ui/).
-   - Note that the template project has been loaded with [Tailwind CSS](https://tailwindcss.com/).
+3. **UI/UX Balance**
+   - Challenge: Professional look while maintaining usability
+   - Solution: Used shadcn/ui components with custom styling
 
-4. **Backend** (if applicable):
+4. **Real-time Updates**
+   - Challenge: Smooth loading states
+   - Solution: Implemented skeleton loading and proper state management
 
-   - A backend service to handle dataset queries and handle API calls.
+## 🔄 Limitations & Future Improvements
 
-5. **Error Handling** (optional):
+1. **Current Limitations**
+   - Fixed dataset (no real-time updates)
+   - Limited to predefined survey questions
+   - No data visualization yet
 
-   - Provide meaningful feedback for invalid or unsupported queries.
-   - Sanitise LLM user inputs and design proper guardrails
+2. **Planned Improvements**
+   - Add interactive charts and graphs
+   - Implement data export functionality
+   - Add more advanced statistical analysis
+   - Support for dynamic data updates
 
-#### **Bonus Features**
+## 🚦 Getting Started
 
-- Visualisations for common data insights (e.g., charts showing stress levels or support services requested).
-- A summary section for predefined insights (e.g., top 3 stress sources, average mental health rating).
-- Deploy on a cloud platform (e.g., Vercel, Netlify, AWS, Heroku).
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/data-insights-chat.git
+```
 
----
+2. Navigate to the project directory:
+```bash
+cd data-insights-chat
+```
 
-### **Deliverables**
+3. Install dependencies:
+```bash
+npm install
+```
 
-1. **GitHub Repository Link**:
+4. Create a `.env.local` file in the root directory and add your Google Gemini API key:
+```env
+GOOGLE_GENERATIVE_AI_API_KEY=your_api_key_here
+```
 
-   - A public repository including:
-     - Codebase.
-     - README file containing a short write up explaining your approach and any considerations or limitations.
+5. Start the development server:
+```bash
+npm run dev
+```
 
-## Understanding the Template Project
+6. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-This template project is built using React, Next.js (App Router), and TypeScript. The files you may edit are enclosed in the `app` folder, specifically:
+## 💬 Usage Examples
 
-- `page.tsx`: The root or home page
-- `api/chat/route.ts`: An API endpoint to handle user queries (see guide [here](https://sdk.vercel.ai/docs/getting-started/nextjs-app-router))
-- `actions/`: A folder containing server functions to process dataset (an example function `countResponses` has been provided for you)
+The chatbot can answer questions about the student survey data. Try asking:
 
-### Prerequisites
+- "What are the most common sources of academic stress?"
+- "How many students rated their mental health below 5?"
+- "What strategies are most used to manage stress?"
+- "What support services do students want?"
 
-Before you begin, ensure you have Node.js installed on your machine. You can download it from [nodejs.org](https://nodejs.org/) or via [homebrew](https://formulae.brew.sh/formula/node) `brew install node` for Mac users.
+## 🔍 Implementation Details
 
-### Setting Up the Project
+### Data Analysis
+- Server-side actions process the survey data
+- Responses are analyzed in real-time using Google's Gemini Pro
+- Statistical calculations include percentages and frequency distributions
 
-1. **Fork and clone the project:**
+### UI Components
+- Built with shadcn/ui for a professional look
+- Dark/light theme support with next-themes
+- Responsive design for all screen sizes
+- Loading states and animations for better UX
 
-   - **Fork the project**: Navigate to the repository on GitHub and click the "Fork" button at the top right corner. This will create a copy of the repository under your own GitHub account, allowing you to make changes without affecting the original project.
+### AI Integration
+- Uses Vercel AI SDK for streaming responses
+- Structured prompts ensure consistent analysis
+- Tool-based approach for accurate data access
+- Temperature control for reliable outputs
 
-   - **Clone the repository**: Once you have forked the repository, clone it to your local machine. You can do this by clicking the "Code" button on your forked repository page, copying the URL, and running the following command in your terminal:
-     ```bash
-     git clone https://github.com/your-username/your-forked-repo.git
-     ```
-     Replace `your-username` with your GitHub username and `your-forked-repo` with the name of the repository you forked.
 
-2. **Navigate to the project directory:**
-
-   ```bash
-   cd data-insights-chat
-   ```
-
-3. **Install the dependencies:**
-
-   ```bash
-   npm install
-   ```
-
-   You may encounter dependency warnings. You may ignore them for the time being.
-
-4. **Run the development server:**
-
-   ```bash
-   npm run dev
-   ```
-
-5. **Open your browser and visit:**
-
-   [http://localhost:3000](http://localhost:3000)
-
-   You should see the application running.
-
-6. **Try an example query**
-
-   Try typing `How many responses are there in total?`
-
-   <img src="./example.png" alt="Example Screenshot" width="400"/>
-
-   Ensure that you have obtained and entered a valid Google Gemini API key before doing this.
-
----
-
-### **Sample Dataset Explanation**
-
-The dataset `responses.csv` provided with this project contains survey responses from university students about their academic stress and mental health management. Below are the headers and descriptions of each column in the dataset:
-
-- **id**: A unique identifier for each response.
-
-- **date**: The timestamp when the response was recorded.
-
-- **What are the main sources of academic stress you experience as a university student?**: Open-ended response where students describe their main sources of academic stress.
-
-- **How often do you feel overwhelmed by your academic workload?**: Selectable options indicating the frequency of feeling overwhelmed by academic workload. Options include: "Never", "Rarely", "Sometimes", "Often", "Always".
-
-- **Which of the following strategies do you use to manage academic stress? (Select all that apply)**: Multiple selections indicating the strategies used by students to manage academic stress. Options include: "Exercise", "Meditation", "Time management", "Seeking help from friends", "Counselling services".
-
-- **On a scale from 1 to 10, how would you rate your overall mental health during the academic year?**: Numeric response where students rate their overall mental health on a scale from 1 to 10.
-
-- **What support services do you think would help improve your academic experience and mental health?**: Open-ended response where students suggest support services that could help improve their academic experience and mental health.
-
-## Note to Applicants
-
-We understand that completing all the features within the mini project can be challenging. The main objective of this project is to assess your technical capabilities and how you approach problem-solving.
-
-**Focus on what you can do best!**
-
-- Feel free to prioritise certain core features.
-- You can implement bonus features like visualisations or predefined insights summaries if time permits.
-- We encourage you to be creative and utilise any AI code generation tools to assist you in building the project.
-
-**Showcase your skills!**
-
-- We are more interested in your thought process, how you tackle challenges, and the overall functionality of your application.
-- In your GitHub repository's README file, document your approach, any libraries or frameworks used, and any limitations your project might have or challenges you faced.
-
-**Don't hesitate to ask for help!**
-
-- If you encounter any difficulties during the development process, feel free to search online resources, explore documentation, or reach out via email.
-
-**This mini project is designed to be a learning experience. We look forward to seeing your solutions!**
-
-## Confidentiality Notice
-
-**We kindly ask you to maintain the confidentiality of the project details and not share them with other applicants or post them online. This ensures a fair assessment for all candidates. Thank you for your understanding and cooperation.**
