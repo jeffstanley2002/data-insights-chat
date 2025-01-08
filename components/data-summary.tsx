@@ -16,12 +16,9 @@ export function DataSummary() {
   const [stats, setStats] = useState<SummaryStats | null>(null);
 
   useEffect(() => {
-    // Calculate summary statistics
     const calculateStats = () => {
-      // Get top stressors with simplified labels
       const stressors = responses.map(r => {
         const source = r["What are the main sources of academic stress you experience as a university student?"];
-        // Map full responses to simplified factors
         if (source.includes("exam")) return "I'm mainly stressed about preparing for exams.";
         if (source.includes("deadline")) return "I often worry about meeting assignment deadlines.";
         if (source.includes("work") && source.includes("studies")) return "Balancing work and studies is challenging for me.";
@@ -41,19 +38,19 @@ export function DataSummary() {
         .sort((a, b) => b.count - a.count)
         .slice(0, 3);
 
-      // Calculate average mental health rating
       const ratings = responses.map(r => r["On a scale from 1 to 10, how would you rate your overall mental health during the academic year?"]);
       const avgMentalHealth = ratings.reduce((acc, curr) => acc + Number(curr), 0) / ratings.length;
 
-      // Get common strategies
       const strategies = responses.flatMap(r => {
-        const strats = r["Which of the following strategies do you use to manage academic stress? (Select all that apply)"];
-        return strats.split(", ");
+        const stratsString = r["Which of the following strategies do you use to manage academic stress? (Select all that apply)"];
+        return stratsString.split(',').map(s => s.trim());
       });
+
       const strategyCounts = strategies.reduce((acc, curr) => {
         acc[curr] = (acc[curr] || 0) + 1;
         return acc;
       }, {} as Record<string, number>);
+
       const commonStrategies = Object.entries(strategyCounts)
         .map(([strategy, count]) => ({ strategy, count }))
         .sort((a, b) => b.count - a.count)
