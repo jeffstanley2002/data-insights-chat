@@ -9,6 +9,8 @@ A real-time AI-powered chat interface for analyzing student survey data about ac
 - **Real-time Analysis**: Get instant insights about student stress, mental health, and support services
 - **Statistical Analysis**: View percentages and frequency distributions of responses
 - **Professional UI**: Clean, responsive interface with dark/light mode support
+- **Predefined Insights Summary**: Added a summary section that displays predefined insights (Bonus Feature)
+
 
 ## 🛠️ Technical Implementation
 
@@ -55,6 +57,11 @@ A real-time AI-powered chat interface for analyzing student survey data about ac
 - Efficient data fetching
 - Proper error handling
 - Response streaming
+
+### 5. Error Handling
+- Input Sanitization
+- Data Validation in Server Actions
+- UI Error Handling  
 
 ## 🎯 Challenges & Solutions
 
@@ -143,3 +150,5 @@ The chatbot can answer questions about the student survey data. Try asking:
 - Structured prompts ensure consistent analysis
 - Tool-based approach for accurate data access
 - Temperature control for reliable outputs
+
+
