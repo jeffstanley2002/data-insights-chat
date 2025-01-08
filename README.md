@@ -2,7 +2,6 @@
 
 A real-time AI-powered chat interface for analyzing student survey data about academic stress and mental health. This application allows users to query and explore insights from survey data through natural language conversations.
 
-![Data Insights Chat Interface](example.png)
 
 ## 🚀 Features
 
